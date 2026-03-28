@@ -1,350 +1,1002 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" onload="this.rel='stylesheet'" rel="stylesheet"/>
-<title>Faiza Anibaba</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#137fec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101922",
-          },
-          fontFamily: {
-            "display": ["Public Sans"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          }
-        },
-      },
-    }
-  </script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faiza Anibaba — Medical Trainee & Health Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-    body {
-      min-height: 100vh;
-    }
-    .pb-safe {
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-    .scroll-container {
-      -ms-overflow-style: none;scrollbar-width: none;}
-    .scroll-container::-webkit-scrollbar {
-      display: none;}
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-[#101922] dark:text-white">
-<div class="relative flex h-auto min-h-screen w-full flex-col justify-between overflow-x-hidden">
-<div>
-<header class="flex items-center bg-background-light dark:bg-background-dark p-4 justify-between md:sticky top-0 z-10 border-b border-white/10 dark:border-black/10 md:px-6 lg:px-8">
-<h1 class="text-xl font-bold md:flex-1"><a href="#">Faiza Anibaba</a></h1>
-<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-<a class="hover:text-primary" href="#about">About</a>
-<a class="hover:text-primary" href="#trainings">Trainings</a>
-<a class="hover:text-primary" href="#experience">Experience</a>
-<a class="hover:text-primary" href="#blog">Blog</a>
-<a class="hover:text-primary" href="#contact">Contact</a>
+  :root {
+    --plum:     #2d0a4e;
+    --purple:   #6b21a8;
+    --violet:   #8b5cf6;
+    --lavender: #c4b5fd;
+    --soft:     #ede9fe;
+    --teal:     #0d9488;
+    --teal-lt:  #99f6e4;
+    --teal-soft:#f0fdf9;
+    --white:    #ffffff;
+    --off-white:#f8f9fe;
+    --ink:      #1a0a2e;
+    --muted:    #64748b;
+    --border:   rgba(107,33,168,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(248,249,254,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--plum);
+  }
+  .nav-logo span { font-style: italic; color: var(--teal); }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--purple); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 64px 80px;
+    gap: 60px;
+  }
+
+  /* Gradient: deep plum → purple-teal blend */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a0030 0%, #2d0a4e 40%, #0f3d3a 100%);
+  }
+
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(196,181,253,0.12) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events: none;
+  }
+
+  .hero-glow-purple {
+    position: absolute;
+    top: -120px; left: -80px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,33,168,0.35) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-glow-teal {
+    position: absolute;
+    bottom: -100px; right: 200px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(13,148,136,0.25) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Left hero text */
+  .hero-text {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .eyebrow-pill {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--teal-lt);
+    background: rgba(13,148,136,0.18);
+    border: 1px solid rgba(153,246,228,0.25);
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 6.5vw, 86px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-name-italic {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 6.5vw, 86px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--teal-lt);
+    line-height: 1;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(196,181,253,0.75);
+    letter-spacing: 0.8px;
+    margin-bottom: 24px;
+  }
+  .hero-title strong { color: var(--lavender); font-weight: 600; }
+
+  .hero-hook {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    max-width: 520px;
+    margin-bottom: 40px;
+    padding-left: 18px;
+    border-left: 2px solid var(--teal);
+  }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 20px rgba(13,148,136,0.35);
+  }
+  .btn-primary:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(13,148,136,0.4);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--lavender);
+    padding: 13px 28px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(196,181,253,0.3);
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--lavender);
+    background: rgba(196,181,253,0.08);
+  }
+
+  /* Right hero — photo card */
+  .hero-photo-wrap {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s 0.2s ease both;
+    display: flex;
+    justify-content: center;
+  }
+
+  .photo-card {
+    position: relative;
+    width: 340px;
+  }
+
+  /* Decorative frame behind photo */
+  .photo-frame {
+    position: absolute;
+    top: 20px; left: 20px;
+    width: 100%; height: 100%;
+    border: 1.5px solid rgba(153,246,228,0.25);
+    border-radius: 4px;
+  }
+
+  .photo-img {
+    width: 340px;
+    height: 420px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border: 2px solid rgba(196,181,253,0.2);
+  }
+
+  /* Placeholder shown if image fails to load */
+  .photo-placeholder {
+    width: 340px;
+    height: 420px;
+    border-radius: 4px;
+    background: linear-gradient(160deg, rgba(107,33,168,0.3), rgba(13,148,136,0.2));
+    border: 2px solid rgba(196,181,253,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(196,181,253,0.5);
+    font-size: 13px;
+    letter-spacing: 1px;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .photo-placeholder-icon { font-size: 48px; opacity: 0.3; }
+
+  .photo-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--teal);
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 2;
+    box-shadow: 0 4px 16px rgba(13,148,136,0.35);
+  }
+
+  /* Globe ring deco around photo */
+  .photo-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,181,253,0.06);
+    pointer-events: none;
+  }
+  .photo-ring2 {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    border: 1px solid rgba(13,148,136,0.06);
+    pointer-events: none;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px; left: 64px;
+    display: flex; align-items: center; gap: 12px;
+    color: rgba(196,181,253,0.4);
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    z-index: 2;
+  }
+  .scroll-line { width: 36px; height: 1px; background: rgba(196,181,253,0.25); }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { padding: 100px 64px; }
+
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  .section-tag::before { content: ''; width: 22px; height: 2px; background: var(--teal); }
+  .section-tag span {
+    font-size: 10px; font-weight: 600; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--teal);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 50px);
+    font-weight: 600;
+    color: var(--plum);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .section-title em { font-style: italic; color: var(--purple); font-weight: 300; }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-narrative {
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .about-narrative strong { color: var(--plum); font-weight: 600; }
+
+  .about-mission {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--purple);
+    line-height: 1.6;
+    border-left: 3px solid var(--teal);
+    padding-left: 20px;
+    margin-top: 28px;
+  }
+
+  .about-stats { display: flex; flex-direction: column; gap: 18px; }
+
+  .stat-card {
+    background: var(--off-white);
+    border-radius: 4px;
+    padding: 22px 26px;
+    border-left: 3px solid var(--teal);
+    transition: transform 0.2s;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+  }
+  .stat-card:hover { transform: translateX(4px); }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 700;
+    color: var(--plum); line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+  /* ── PORTFOLIO ── */
+  .portfolio { background: var(--off-white); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    margin-top: 50px;
+  }
+
+  .portfolio-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(45,10,78,0.1);
+    border-color: rgba(13,148,136,0.3);
+  }
+
+  .card-top {
+    height: 150px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .card-top-1 { background: linear-gradient(135deg, var(--plum), #4a0e82); }
+  .card-top-2 { background: linear-gradient(135deg, #065f46, #0f3d3a); }
+
+  .card-top-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 300; font-style: italic;
+    color: rgba(255,255,255,0.88);
+    text-align: center; padding: 0 20px; line-height: 1.3; position: relative; z-index: 1;
+  }
+  .card-top-deco {
+    position: absolute; font-size: 80px; opacity: 0.07; pointer-events: none;
+  }
+
+  .card-body { padding: 26px 30px; }
+  .card-category {
+    font-size: 10px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; color: var(--plum);
+    margin-bottom: 10px; line-height: 1.25;
+  }
+  .card-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .card-tag {
+    display: inline-block; margin-top: 16px;
+    padding: 4px 14px; border-radius: 20px;
+    background: var(--teal-soft); color: var(--teal);
+    font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    border: 1px solid rgba(13,148,136,0.2);
+  }
+
+  /* ── PULSE ── */
+  .pulse {
+    background: linear-gradient(135deg, #1a0030 0%, #2d0a4e 50%, #0f3d3a 100%);
+  }
+  .pulse .section-tag span { color: var(--teal-lt); }
+  .pulse .section-tag::before { background: var(--teal-lt); }
+  .pulse .section-title { color: var(--white); }
+  .pulse .section-title em { color: var(--teal-lt); }
+
+  .pulse-intro {
+    font-size: 15px; color: rgba(196,181,253,0.65);
+    max-width: 580px; line-height: 1.75; margin-bottom: 50px;
+  }
+  .pulse-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+
+  .pulse-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(153,246,228,0.12);
+    border-radius: 4px; padding: 30px 26px;
+    transition: all 0.3s;
+  }
+  .pulse-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(153,246,228,0.28);
+    transform: translateY(-4px);
+  }
+
+  .pulse-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(13,148,136,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 18px;
+    border: 1px solid rgba(153,246,228,0.15);
+  }
+  .pulse-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; font-weight: 600; color: var(--white);
+    margin-bottom: 10px; line-height: 1.25;
+  }
+  .pulse-card-desc { font-size: 13px; color: rgba(196,181,253,0.6); line-height: 1.7; }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--white); }
+
+  .exp-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; margin-top: 50px;
+  }
+
+  .exp-col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: var(--plum);
+    margin-bottom: 28px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item {
+    display: flex; gap: 18px; padding-bottom: 26px; position: relative;
+  }
+  .timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute; left: 7px; top: 18px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--teal-soft);
+    border: 2px solid var(--teal); flex-shrink: 0; margin-top: 3px;
+  }
+  .timeline-title { font-size: 14px; font-weight: 600; color: var(--plum); margin-bottom: 2px; }
+  .timeline-sub { font-size: 12px; color: var(--teal); font-weight: 500; margin-bottom: 3px; }
+  .timeline-date { font-size: 11px; color: var(--muted); letter-spacing: 0.8px; }
+  .timeline-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 6px; }
+
+  /* ── SKILLS ── */
+  .skills { background: var(--off-white); }
+
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 24px; margin-top: 50px;
+  }
+
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 26px;
+    transition: all 0.25s;
+  }
+  .skill-card:hover {
+    border-color: rgba(13,148,136,0.3);
+    box-shadow: 0 8px 28px rgba(13,148,136,0.07);
+  }
+  .skill-card-title {
+    font-size: 10px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--teal);
+    margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .skill-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: var(--ink);
+  }
+  .skill-item::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0;
+  }
+
+  .certs-section { margin-top: 48px; }
+  .certs-title {
+    font-size: 10px; font-weight: 600; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--purple);
+    margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+  }
+  .certs-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  .cert-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cert-badge {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 16px;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 3px; font-size: 13px; font-weight: 500;
+    color: var(--plum); transition: all 0.2s;
+  }
+  .cert-badge:hover { border-color: var(--teal); background: var(--teal-soft); }
+  .cert-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: linear-gradient(135deg, #1a0030 0%, #2d0a4e 55%, #0a2e2b 100%);
+    padding: 80px 64px 40px;
+    position: relative; overflow: hidden;
+  }
+  .footer-glow-purple {
+    position: absolute; top: -80px; left: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,33,168,0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .footer-glow-teal {
+    position: absolute; bottom: -80px; right: 100px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .footer-inner { position: relative; z-index: 2; }
+
+  .footer-cta {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3.2vw, 42px);
+    font-weight: 300; font-style: italic;
+    color: var(--white); max-width: 680px;
+    line-height: 1.45; margin-bottom: 40px;
+  }
+  .footer-cta strong { font-style: normal; font-weight: 700; color: var(--teal-lt); }
+
+  .footer-links { display: flex; gap: 28px; margin-bottom: 56px; flex-wrap: wrap; }
+  .footer-link {
+    display: flex; align-items: center; gap: 8px;
+    color: rgba(196,181,253,0.65); text-decoration: none;
+    font-size: 14px; transition: color 0.2s;
+  }
+  .footer-link:hover { color: var(--teal-lt); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: wrap; gap: 14px;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 700; color: var(--white);
+  }
+  .footer-name span { font-style: italic; color: var(--teal-lt); }
+  .footer-memberships { font-size: 12px; color: rgba(196,181,253,0.4); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-photo-wrap { order: -1; }
+    .photo-card { width: 260px; }
+    .photo-img, .photo-placeholder { width: 260px; height: 320px; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .portfolio-grid, .pulse-grid, .exp-grid, .skills-grid { grid-template-columns: 1fr; }
+    footer { padding: 60px 24px 32px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Faiza <span>Anibaba</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#pulse">Pulse</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
-</header>
-<main class="p-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
-<section class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left mb-12">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-32 h-32 md:w-40 md:h-40 flex-shrink-0" style='background-image: url("assets/image/profile.jpg");'></div>
-<div class="flex flex-col gap-1">
-<h2 class="text-3xl md:text-4xl font-bold">Faiza Anibaba</h2>
-<p class="text-lg text-black/60 dark:text-white/60">Budding Medical Doctor</p>
-<p class="text-base text-black/60 dark:text-white/60">faizdemola@gmail.com</p>
-</div>
-<div class="mt-6 text-center">
-<a class="inline-flex items-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="#">
-<span class="material-symbols-outlined mr-2">download</span>
-              Download Resume
-            </a>
-</div>
-</section>
-<section class="mb-12" id="about">
-<h3 class="text-2xl font-bold mb-4">Who am I?</h3>
-<p class="text-base md:text-lg text-black/60 dark:text-white/60 max-w-3xl">A passionate and dedicated Medical student of Lagos State University, College of Medicine with a strong foundation in content writing and a keen interest in crativity to build sustainable health solutions. Eager to learn, grow, and contribute to innovative blog.</p>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-dots"></div>
+  <div class="hero-glow-purple"></div>
+  <div class="hero-glow-teal"></div>
+
+  <!-- Left: Text -->
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-pill">Medical Trainee · Health Strategist</span>
+    </div>
+    <div class="hero-name">Faiza</div>
+    <span class="hero-name-italic">Anibaba</span>
+    <div class="hero-title">Medical Trainee &nbsp;|&nbsp; <strong>Health Communications &amp; Global Health Strategy</strong></div>
+    <div class="hero-hook">
+      "I leverage creative communication to make complex medical information accessible and engaging for underserved communities."
+    </div>
+    <div class="hero-actions">
+      <a href="mailto:faizaanibaba@gmail.com" class="btn-primary">Let's Collaborate →</a>
+      <a href="#portfolio" class="btn-secondary">View Work</a>
+    </div>
+  </div>
+
+  <!-- Right: Photo -->
+  <div class="hero-photo-wrap">
+    <div class="photo-ring"></div>
+    <div class="photo-ring2"></div>
+    <div class="photo-card">
+      <div class="photo-frame"></div>
+      <img
+        class="photo-img"
+        src="https://faiza-anibaba.netlify.app/faiza.jpg"
+        alt="Faiza Anibaba"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="photo-placeholder" style="display:none;">
+        <span class="photo-placeholder-icon">👤</span>
+        <span>Faiza Anibaba</span>
+      </div>
+      <div class="photo-badge">Medical Trainee</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
 </section>
 
-  <!-- Skills Section Start -->
-  <section class="mb-12" id="skills">
-    <h3 class="text-2xl font-bold mb-4">Skills</h3>
-    <div class="flex flex-wrap gap-3">
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Content Writing</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Creativity</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Teamwork</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Communication</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Leadership</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Problem Solving</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Research</span>
-      <span class="inline-block bg-primary/10 text-primary dark:bg-primary/20 dark:text-white px-4 py-2 rounded-full text-sm font-medium">Public Speaking</span>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="reveal">
+    <div class="section-tag"><span>About</span></div>
+    <h2 class="section-title">Bridging Clinic &<br><em>Creative Strategy</em></h2>
+    <p class="about-narrative">
+      I am a medical student at <strong>Lagos State University College of Medicine, Ikeja</strong> with a deep-seated passion for the evolution of healthcare and preserving our world. While my days are spent in clinical rotations at LASUTH, I believe the future of global health depends on how we communicate innovation to the public.
+    </p>
+    <p class="about-narrative">
+      I combine my clinical foundation with an <strong>excellence-rated background in content writing</strong> to advocate for health equity and climate change awareness. As a result-driven team player, I thrive in roles involving strategic planning and creative problem-solving.
+    </p>
+    <div class="about-mission">
+      "To bridge the gap between clinical medicine and public understanding through strategic innovation."
     </div>
-  </section>
-  <!-- Skills Section End -->
-
-<section class="mb-12" id="trainings" x-data="{
-                skip: 1,
-                atBeginning: true,
-                atEnd: false,
-                next() {
-                    this.to((this.skip &lt; 3) ? this.skip + 1 : 3);
-                },
-                prev() {
-                    this.to((this.skip &gt; 1) ? this.skip - 1 : 1);
-                },
-                to(idx) {
-                    this.skip = idx;
-                    let el = document.querySelector('#trainings .scroll-container');
-                    let child = el.querySelector(`.snap-center:nth-child(${this.skip})`);
-                    el.scrollLeft = child.offsetLeft - child.parentElement.offsetLeft;
-                    this.atBeginning = this.skip === 1;
-                    this.atEnd = this.skip === 3;
-                },
-            }">
-<h3 class="text-2xl font-bold mb-4">Trainings</h3>
-<div class="relative">
-<div class="scroll-container flex overflow-x-hidden snap-x snap-mandatory md:grid md:grid-cols-2 md:gap-6">
-<div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0">
-<div class="flex flex-col gap-2 p-6 rounded-lg bg-white/50 dark:bg-black/20 h-full">
-<h4 class="font-medium text-lg">Certificate 1</h4>
-<p class="text-base text-black/60 dark:text-white/60">Say something about it</p>
-</div>
-</div>
-<div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0">
-<div class="flex flex-col gap-2 p-6 rounded-lg bg-white/50 dark:bg-black/20 h-full">
-<h4 class="font-medium text-lg">Certificate 1</h4>
-<p class="text-base text-black/60 dark:text-white/60">Say something about it</p>
-</div>
-</div>
-<div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0">
-<div class="flex flex-col gap-2 p-6 rounded-lg bg-white/50 dark:bg-black/20 h-full">
-<h4 class="font-medium text-lg">Certificate 3</h4>
-<p class="text-base text-black/60 dark:text-white/60">Say something about it</p>
-</div>
-</div>
-</div>
-<div class="flex justify-center gap-4 mt-4 md:hidden">
-<button :disabled="atBeginning" @click="prev()" class="p-2 rounded-full bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60 hover:bg-black/20 dark:hover:bg-white/20 disabled:opacity-50">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<button :disabled="atEnd" @click="next()" class="p-2 rounded-full bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60 hover:bg-black/20 dark:hover:bg-white/20 disabled:opacity-50">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-</section>
-<section class="mb-12" id="experience" x-data="{
-                skip: 1,
-                atBeginning: true,
-                atEnd: false,
-                next() {
-                    this.to((this.skip &lt; 3) ? this.skip + 1 : 3);
-                },
-                prev() {
-                    this.to((this.skip &gt; 1) ? this.skip - 1 : 1);
-                },
-                to(idx) {
-                    this.skip = idx;
-                    let el = document.querySelector('#experience .scroll-container');
-                    let child = el.querySelector(`.snap-center:nth-child(${this.skip})`);
-                    el.scrollLeft = child.offsetLeft - child.parentElement.offsetLeft;
-                    this.atBeginning = this.skip === 1;
-                    this.atEnd = this.skip === 3;
-                },
-            }">
-<h3 class="text-2xl font-bold mb-4">Experience</h3>
-<div class="relative">
-<div class="scroll-container flex overflow-x-hidden snap-x snap-mandatory md:grid md:grid-cols-1 md:gap-6">
-<div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0">
-<div class="flex items-start gap-4 p-6 rounded-lg bg-white/50 dark:bg-black/20 h-full">
-<div class="w-12 h-12 bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7iROdpDG3h01e8Cm5nya6TvQerw2LRBQzVdiZMBNhu7l_STfaxpSmRWZuB_Sbn3Qbvs6z4jjr9z2_wkDUN-zsiSsvROrSlf8DQ_DqsmuUi1qXRVLj3k70dXku-2WrR8Mshq6y6NODnwVvGV20W5zvLL2OJxr7Nae8PT0zHs-TqTSVIFLXKvLBmw5ES-WDkFpb3crPHLqsB_hk98lfKmOOUsLEQTYG9KZoT0uYj_kjLjy5i8OTPPTDduASWyCxN815BsFrQ3hfDYc");'></div>
-<div class="flex-1">
-<h4 class="font-medium text-lg">Publicity</h4>
-<p class="text-base text-black/60 dark:text-white/60">Google Developers Group on Campus, Univeristy of Lagos | 2024 -2025</p>
-<p class="text-base text-black/60 dark:text-white/60 mt-1">Talk about your initiatives and your attitude</p>
-</div>
-</div>
-</div>
-<div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0">
-<div class="flex items-start gap-4 p-6 rounded-lg bg-white/50 dark:bg-black/20 h-full">
-<div class="w-12 h-12 bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7iROdpDG3h01e8Cm5nya6TvQerw2LRBQzVdiZMBNhu7l_STfaxpSmRWZuB_Sbn3Qbvs6z4jjr9z2_wkDUN-zsiSsvROrSlf8DQ_DqsmuUi1qXRVLj3k70dXku-2WrR8Mshq6y6NODnwVvGV20W5zvLL2OJxr7Nae8PT0zHs-TqTSVIFLXKvLBmw5ES-WDkFpb3crPHLqsB_hk98lfKmOOUsLEQTYG9KZoT0uYj_kjLjy5i8OTPPTDduASWyCxN815BsFrQ3hfDYc");'></div>
-<div class="flex-1">
-<h4 class="font-medium text-lg">Team</h4>
-<p class="text-base text-black/60 dark:text-white/60">Google Developers Group on Campus, Univeristy of Lagos | 2024 -2025</p>
-<p class="text-base text-black/60 dark:text-white/60 mt-1">Talk about your initiatives and your attitude</p>
-</div>
-</div>
-</div>
-<div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0">
-<div class="flex items-start gap-4 p-6 rounded-lg bg-white/50 dark:bg-black/20 h-full">
-<div class="w-12 h-12 bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7iROdpDG3h01e8Cm5nya6TvQerw2LRBQzVdiZMBNhu7l_STfaxpSmRWZuB_Sbn3Qbvs6z4jjr9z2_wkDUN-zsiSsvROrSlf8DQ_DqsmuUi1qXRVLj3k70dXku-2WrR8Mshq6y6NODnwVvGV20W5zvLL2OJxr7Nae8PT0zHs-TqTSVIFLXKvLBmw5ES-WDkFpb3crPHLqsB_hk98lfKmOOUsLEQTYG9KZoT0uYj_kjLjy5i8OTPPTDduASWyCxN815BsFrQ3hfDYc");'></div>
-<div class="flex-1">
-<h4 class="font-medium text-lg">Lead</h4>
-<p class="text-base text-black/60 dark:text-white/60">Google Developers Group on Campus, Univeristy of Lagos | 2024 -2025</p>
-<p class="text-base text-black/60 dark:text-white/60 mt-1">Talk about your initiatives and your attitude</p>
-</div>
-</div>
-</div>
-</div>
-<div class="flex justify-center gap-4 mt-4 md:hidden">
-<button :disabled="atBeginning" @click="prev()" class="p-2 rounded-full bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60 hover:bg-black/20 dark:hover:bg-white/20 disabled:opacity-50">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<button :disabled="atEnd" @click="next()" class="p-2 rounded-full bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60 hover:bg-black/20 dark:hover:bg-white/20 disabled:opacity-50">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-</section>
-<section class="mb-12" id="blog" x-data="{
-    skip: 1,
-    atBeginning: true,
-    atEnd: false,
-    next() {
-        this.to((this.skip < 3) ? this.skip + 1 : 3);
-    },
-    prev() {
-        this.to((this.skip > 1) ? this.skip - 1 : 1);
-    },
-    to(idx) {
-        this.skip = idx;
-        let el = document.querySelector('#blog .scroll-container');
-        let child = el.querySelector(`.snap-center:nth-child(${this.skip})`);
-        el.scrollLeft = child.offsetLeft - child.parentElement.offsetLeft;
-        this.atBeginning = this.skip === 1;
-        this.atEnd = this.skip === 3;
-    },
-}">
-  <h3 class="text-2xl font-bold mb-4">My Insights</h3>
-  <div class="relative">
-    <div class="scroll-container flex overflow-x-hidden snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0 flex flex-col gap-3">
-        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZOdNhxlnO5dqpiG0ov139Ii2cVrKI-KUOR1SthIzti9GSrUK799CpvaSvH71x7c1LFK76Lb624_-z5Z2mS7e7dAZsxX6wTrypfQzMvjeHDN2JXSkN0pg42_JDl8L_WGYspHULuHOhYmE5Im5puUcW0L0A8TFRArXYtyzfcRW9LnBzK-1t2YDoXvP0tP6gBv6nDdAz7_cW19iti9AZqB_COJqgox479_mXYUO_WQdns88dUpGIMWyGcrUmS_CPmRiwkCDJMRsApgg");'></div>
-        <div>
-          <h4 class="font-medium text-lg">Article 1</h4>
-          <p class="text-base text-black/60 dark:text-white/60">Summary hook</p>
-          <button class="mt-2 inline-flex items-center bg-primary text-white py-1.5 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary text-sm">
-        Read
-        <span class="material-symbols-outlined ml-2">arrow_forward</span>
-          </button>
-        </div>
-      </div>
-      <div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0 flex flex-col gap-3">
-        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClcl1o1ICuTvsbcZC3SO7TsnKPF6CXjUyGwdJdWShhlZQeL5E1y-egU2dJQzvEVq0ASliN7J5_ec5vKOG0w3NLKAmH4aCuVSjpt6ke-e0Xq4U_kM6SB1OKCvE2mpFhZcHAVRriydcf3cTwtC3YCWgqvGyjdCU5StsaxnRqQ2vQpSRDVVm80n050Tom49ssrPoVaVl7phR5sMiR89DAuoUOd_8UAh4r3vVEaMQ4zl-I6_gnpudG8PxXCqmB2fuDoG7hSNg0_-3j3h0");'></div>
-        <div>
-          <h4 class="font-medium text-lg">Article 2</h4>
-          <p class="text-base text-black/60 dark:text-white/60">Summary hook</p>
-          <button class="mt-2 inline-flex items-center bg-primary text-white py-1.5 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary text-sm">
-        Read
-        <span class="material-symbols-outlined ml-2">arrow_forward</span>
-          </button>
-        </div>
-      </div>
-      <div class="flex-shrink-0 w-[80vw] snap-center mr-4 md:w-auto md:mr-0 flex flex-col gap-3">
-        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg bg-gray-300 dark:bg-gray-700"></div>
-        <div>
-          <h4 class="font-medium text-lg">Article 3</h4>
-          <p class="text-base text-black/60 dark:text-white/60">Summary hook</p>
-          <button class="mt-2 inline-flex items-center bg-primary text-white py-1.5 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary text-sm">
-        Read
-        <span class="material-symbols-outlined ml-2">arrow_forward</span>
-          </button>
-        </div>
-      </div>
+  </div>
+  <div class="about-stats reveal">
+    <div class="stat-card">
+      <div class="stat-number">4th</div>
+      <div class="stat-label">Year Medical Student · LASUCOM</div>
     </div>
-    <div class="flex justify-center gap-4 mt-4 md:hidden">
-      <button :disabled="atBeginning" @click="prev()" class="p-2 rounded-full bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60 hover:bg-black/20 dark:hover:bg-white/20 disabled:opacity-50">
-        <span class="material-symbols-outlined">arrow_back</span>
-      </button>
-      <button :disabled="atEnd" @click="next()" class="p-2 rounded-full bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60 hover:bg-black/20 dark:hover:bg-white/20 disabled:opacity-50">
-        <span class="material-symbols-outlined">arrow_forward</span>
-      </button>
+    <div class="stat-card">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Scholarship Awards Received</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Passion for Global Health Innovation</div>
     </div>
   </div>
 </section>
-<section class="mb-16" id="contact">
-    <h3 class="text-2xl font-bold mb-4">Contact Me</h3>
-    <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg max-w-3xl mx-auto flex flex-col items-center gap-4">
-        <a href="mailto:aishamidun@gmail.com" class="w-full md:w-auto inline-flex items-center justify-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-2">
-            <span class="material-symbols-outlined mr-2">mail</span>
-            Email Me
-        </a>
-        <a href="tel:+2349046134564" class="w-full md:w-auto inline-flex items-center justify-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-            <span class="material-symbols-outlined mr-2">call</span>
-            Call Me
-        </a>
-    </div>
-    <div class="mt-6 flex justify-center space-x-6">
-        <a class="text-black/60 dark:text-white/60 hover:text-primary" href="#">
-            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.425 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.564 9.564 0 012.502.337c1.91-1.296 2.75-1.026 2.75-1.026.546 1.378.203 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.852 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path></svg>
-        </a>
-        <a class="text-black/60 dark:text-white/60 hover:text-primary" href="#">
-            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.25 5.24c-.79.35-1.63.59-2.5.69.9-.54 1.6-1.4 1.93-2.42-.85.5-1.78.87-2.79 1.07A4.89 4.89 0 0016.1 4c-2.4 0-4.34 1.94-4.34 4.34 0 .34.04.67.11.99-3.6-.18-6.8-1.9-8.94-4.54-.37.64-.58 1.38-.58 2.18 0 1.5.76 2.83 1.93 3.61-.7-.02-1.37-.21-1.95-.54v.06c0 2.1 1.5 3.85 3.48 4.25-.36.1-.74.15-1.14.15-.28 0-.55-.03-.81-.08.55 1.72 2.15 2.97 4.04 3.01-1.48 1.16-3.36 1.85-5.39 1.85-.35 0-.7-.02-1.04-.06 1.92 1.23 4.2 1.95 6.66 1.95 7.99 0 12.36-6.62 12.36-12.36 0-.19 0-.38-.01-.56.84-.6 1.57-1.36 2.15-2.23z"></path></svg>
-        </a>
-        <a class="text-black/60 dark:text-white/60 hover:text-primary" href="#">
-            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19.33 2H4.67C3.2 2 2 3.2 2 4.67v14.66C2 20.8 3.2 22 4.67 22h14.66c1.47 0 2.67-1.2 2.67-2.67V4.67C22 3.2 20.8 2 19.33 2zM8.33 18.33H5V8.33h3.33v10zm-1.66-11.66c-1.15 0-2.09-.94-2.09-2.09s.94-2.09 2.09-2.09 2.09.94 2.09 2.09-.93 2.09-2.09 2.09zM18.33 18.33h-3.33v-4.93c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.58v5.02h-3.33V8.33h3.19v1.46h.04c.44-.84 1.53-1.73 3.15-1.73 3.37 0 3.99 2.22 3.99 5.1v5.87z" fill-rule="evenodd"></path></svg>
-        </a>
-    </div>
-</section>
-</main>
-</div>
-<footer class="md:hidden fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-white/10 dark:border-black/20 pb-safe z-20">
-<div class="flex justify-around items-center px-4 pt-2 pb-3">
-<a class="flex flex-col items-center gap-1 text-black/60 dark:text-white/60 hover:text-primary" href="#about">
-<span class="material-symbols-outlined">person</span>
-<span class="text-xs font-medium">About</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-black/60 dark:text-white/60 hover:text-primary" href="#experience">
-<span class="material-symbols-outlined">work</span>
-<span class="text-xs font-medium">Experience</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-black/60 dark:text-white/60 hover:text-primary" href="#blog">
-<span class="material-symbols-outlined">lightbulb</span>
-<span class="text-xs font-medium">Blog</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-primary" href="#contact">
-<span class="material-symbols-outlined">mail</span>
-<span class="text-xs font-medium">Contact</span>
-</a>
-</div>
-</footer>
-<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-</div>
 
-</body></html>
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="reveal">
+    <div class="section-tag"><span>Work</span></div>
+    <h2 class="section-title">Featured <em>Projects</em></h2>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card reveal">
+      <div class="card-top card-top-1">
+        <span class="card-top-deco">✍️</span>
+        <div class="card-top-label">"A Minute With<br>Dr. Omotayo"</div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">Health Communications</div>
+        <div class="card-title">High-Impact Medical Interview</div>
+        <p class="card-desc">A published interview in <em>An-Nasihah</em>, recognised for excellence in content writing. This piece translates clinical perspectives into accessible public health narrative — demonstrating the power of storytelling in healthcare advocacy.</p>
+        <span class="card-tag">Published · An-Nasihah</span>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="card-top card-top-2">
+        <span class="card-top-deco">📊</span>
+        <div class="card-top-label">Clinical Data<br>Visualisation</div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">Data Visualisation</div>
+        <div class="card-title">Research to Stakeholder Insights</div>
+        <p class="card-desc">Projects utilising HP LIFE certification in Data Presentation to translate complex clinical research data into clear, compelling formats accessible to non-clinical stakeholders and global health audiences.</p>
+        <span class="card-tag">HP LIFE Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULSE -->
+<section class="pulse" id="pulse">
+  <div class="reveal">
+    <div class="section-tag"><span>The Pulse</span></div>
+    <h2 class="section-title">Blog &amp; <em>Current Focus</em></h2>
+    <p class="pulse-intro">Follow the journey — through medicine, design, and the spaces in between. Currently on Medicine and Surgery rotations at LASUTH (Oct 2024 – Feb 2025).</p>
+  </div>
+  <div class="pulse-grid">
+    <div class="pulse-card reveal">
+      <div class="pulse-icon">🌍</div>
+      <div class="pulse-card-title">Global Health Insights</div>
+      <p class="pulse-card-desc">Articles on health equity, the evolution of healthcare, and climate change advocacy — exploring what it means to preserve our world through medicine and communication.</p>
+    </div>
+    <div class="pulse-card reveal">
+      <div class="pulse-icon">📚</div>
+      <div class="pulse-card-title">Medical Mentorship</div>
+      <p class="pulse-card-desc">Reflections on work with the NGM Book Review and Medical teams — navigating mentorship, community, and growth within Nigeria's next generation of healthcare leaders.</p>
+    </div>
+    <div class="pulse-card reveal">
+      <div class="pulse-icon">🗂️</div>
+      <div class="pulse-card-title">Strategic Planning</div>
+      <p class="pulse-card-desc">Insights from leadership as Treasurer at CoHI and Logistics Lead at the Provost's Cup — translating organisational strategy into high-impact results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="reveal">
+    <div class="section-tag"><span>Experience</span></div>
+    <h2 class="section-title">Education &amp; <em>Leadership</em></h2>
+  </div>
+  <div class="exp-grid">
+    <div class="reveal">
+      <div class="exp-col-title">Education & Clinical Training</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">MB;BS — Medicine & Surgery</div>
+            <div class="timeline-sub">Lagos State University College of Medicine (LASUCOM)</div>
+            <div class="timeline-date">In Progress · Expected June 2028</div>
+            <div class="timeline-desc">Fourth-year medical student with clinical rotations at LASUTH in Medicine, Surgery, and Basic Clinical Skills.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">Clinical Rotations — LASUTH</div>
+            <div class="timeline-sub">Lagos State University Teaching Hospital</div>
+            <div class="timeline-date">Oct 2024 – Feb 2025</div>
+            <div class="timeline-desc">Junior postings in Medicine and Surgery. Building clinical foundations in history-taking, physical examination, and patient care delivery.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">Data Presentation Certification</div>
+            <div class="timeline-sub">HP LIFE Programme</div>
+            <div class="timeline-date">2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="exp-col-title">Leadership & Volunteering</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">Team Lead, Welfare & Logistics</div>
+            <div class="timeline-sub">Provost's Cup · LASUCOM</div>
+            <div class="timeline-date">2024</div>
+            <div class="timeline-desc">Directed welfare and logistics for a major collegiate event — overseeing coordination, resource distribution, and execution.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">Treasurer</div>
+            <div class="timeline-sub">Council of Higher Institutions (CoHI)</div>
+            <div class="timeline-date">2023 – 2024</div>
+            <div class="timeline-desc">Managed financial operations and strategic planning across institutional programmes.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">Class Ambassador</div>
+            <div class="timeline-sub">Lagos State University Students' Union (LASUSU)</div>
+            <div class="timeline-date">2023</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-title">Content Writing — Excellence Award</div>
+            <div class="timeline-sub">CWW Tech Africa</div>
+            <div class="timeline-date">Recognised</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="reveal">
+    <div class="section-tag"><span>Skills</span></div>
+    <h2 class="section-title">Capabilities &amp; <em>Certifications</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-card-title">Clinical</div>
+      <ul class="skill-list">
+        <li class="skill-item">Patient history-taking</li>
+        <li class="skill-item">Physical examination</li>
+        <li class="skill-item">Basic first aid & emergency care</li>
+        <li class="skill-item">Clinical documentation</li>
+      </ul>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-title">Communication & Design</div>
+      <ul class="skill-list">
+        <li class="skill-item">Content & creative writing</li>
+        <li class="skill-item">Graphic design</li>
+        <li class="skill-item">Health communication strategy</li>
+        <li class="skill-item">Data Presentation (HP LIFE)</li>
+      </ul>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-title">Strategy & Research</div>
+      <ul class="skill-list">
+        <li class="skill-item">Strategic planning & leadership</li>
+        <li class="skill-item">Global health advocacy</li>
+        <li class="skill-item">SPSS (Beginner)</li>
+        <li class="skill-item">Event coordination & logistics</li>
+      </ul>
+    </div>
+  </div>
+  <div class="certs-section reveal">
+    <div class="certs-title">Certifications & Awards</div>
+    <div class="cert-badges">
+      <div class="cert-badge"><div class="cert-dot"></div>Content Writing Excellence — CWW Tech Africa</div>
+      <div class="cert-badge"><div class="cert-dot"></div>Data Presentation — HP LIFE</div>
+      <div class="cert-badge"><div class="cert-dot"></div>Financial Skills — Ingressive for Good × Money Africa</div>
+      <div class="cert-badge"><div class="cert-dot"></div>Crescent Bearers Scholarship</div>
+      <div class="cert-badge"><div class="cert-dot"></div>Rotary Club Scholarship</div>
+      <div class="cert-badge"><div class="cert-dot"></div>Lagos State Scholarship Board</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-glow-purple"></div>
+  <div class="footer-glow-teal"></div>
+  <div class="footer-inner">
+    <div class="footer-cta reveal">
+      If you are working on something meaningful in <strong>global health</strong> or innovation — I would love to be part of it.
+    </div>
+    <div class="footer-links reveal">
+      <a href="mailto:faizaanibaba@gmail.com" class="footer-link">✉ faizaanibaba@gmail.com</a>
+      <a href="tel:09035916822" class="footer-link">📞 09035916822</a>
+      <a href="https://linkedin.com" target="_blank" class="footer-link">🔗 LinkedIn</a>
+      <a href="https://an-nasihah.com" target="_blank" class="footer-link">📖 An-Nasihah Blog</a>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-name">Faiza <span>Anibaba</span></div>
+      <div class="footer-memberships">NiMSA · LASUMSA · Surgery Interest Group of Africa (SIGAF)</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Try common image path patterns from the site
+  const img = document.querySelector('.photo-img');
+  const paths = [
+    'https://faiza-anibaba.netlify.app/assets/faiza.jpg',
+    'https://faiza-anibaba.netlify.app/assets/images/faiza.jpg',
+    'https://faiza-anibaba.netlify.app/img/faiza.jpg',
+    'https://faiza-anibaba.netlify.app/images/faiza.jpg',
+    'https://faiza-anibaba.netlify.app/assets/profile.jpg',
+    'https://faiza-anibaba.netlify.app/assets/hero.jpg',
+  ];
+  let idx = 0;
+  function tryNext() {
+    if (idx >= paths.length) {
+      img.style.display = 'none';
+      document.querySelector('.photo-placeholder').style.display = 'flex';
+      return;
+    }
+    img.src = paths[idx++];
+    img.onerror = tryNext;
+  }
+  tryNext();
+</script>
+
+</body>
+</html>
